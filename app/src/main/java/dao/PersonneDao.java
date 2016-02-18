@@ -58,7 +58,7 @@ public class PersonneDao {
 	public void deletePersonne(Context context,long pos) {
 		dbadapter.open();
 		if (dbadapter.deleteRow(pos)) {
-			utils.Message.show(context, "Personne Supprim�e");
+			utils.Message.show(context, "Personne Supprimée");
 		}
 		dbadapter.close();
 	}

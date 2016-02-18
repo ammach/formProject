@@ -21,9 +21,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PersonnesActivity"
-            android:label="La Liste des Personnes"
+            android:label="Personnes"
             android:parentActivityName=".AddActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

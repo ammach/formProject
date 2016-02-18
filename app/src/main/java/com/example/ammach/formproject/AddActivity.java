@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -21,6 +22,11 @@ public class AddActivity extends AppCompatActivity {
     EditText editPrenom;
     EditText editAge;
     EditText editTravail;
+
+    TextInputLayout editNomLayout;
+    TextInputLayout editPrenomLayout;
+    TextInputLayout editAgeLayout;
+    TextInputLayout editTravailLayout;
 
     String nom="";
     String prenom="";
@@ -55,6 +61,11 @@ public class AddActivity extends AppCompatActivity {
         editPrenom=(EditText) findViewById(R.id.editPrenom);
         editAge=(EditText) findViewById(R.id.editAge);
         editTravail=(EditText) findViewById(R.id.editTravail);
+
+        editNomLayout=(TextInputLayout) findViewById(R.id.editNomLayout);
+        editPrenomLayout=(TextInputLayout) findViewById(R.id.editPrenomLayout);
+        editAgeLayout=(TextInputLayout) findViewById(R.id.editAgeLayout);
+        editTravailLayout=(TextInputLayout) findViewById(R.id.editTravailLayout);
     }
 
 
@@ -91,7 +102,30 @@ public class AddActivity extends AppCompatActivity {
         age=editAge.getText().toString();
         travail=editTravail.getText().toString();
         if (nom.equals("") || prenom.equals("")|| editAge.getText().toString().equals("") || travail.equals("")) {
-            utils.Message.show(this,"veuillez remplir vos données");
+            if (nom.equals("")){
+                editNomLayout.setError("veuillez remplir votre nom");
+            }
+            else {
+                editNomLayout.setErrorEnabled(false);
+            }
+            if (prenom.equals("")){
+                editPrenomLayout.setError("veuillez remplir votre prenom");
+            }
+            else {
+                editPrenomLayout.setErrorEnabled(false);
+            }
+            if (editAge.getText().toString().equals("")){
+                editAgeLayout.setError("veuillez remplir votre age");
+            }
+            else {
+                editAgeLayout.setErrorEnabled(false);
+            }
+            if (travail.equals("")){
+                editTravailLayout.setError("veuillez remplir votre travail");
+            }
+            else {
+                editTravailLayout.setErrorEnabled(false);
+            }
         } else {
             profil.setDrawingCacheEnabled(true);
             Bitmap bitmap=profil.getDrawingCache();
